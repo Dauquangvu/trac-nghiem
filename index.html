@@ -4,18 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trắc nghiệm 20 câu</title>
+
 <style>
-body { font-family: Arial, sans-serif; padding: 10px; max-width: 800px; margin: auto; }
+body { font-family: Arial; padding: 10px; max-width: 800px; margin: auto; }
 h2 { text-align: center; }
 .question { margin-bottom: 25px; }
-button { margin: 5px 0; display: block; width: 100%; text-align: left; padding: 10px; font-size: 1em; }
+
+button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+}
+
 .correct { color: green; font-weight: bold; }
 .wrong { color: red; font-weight: bold; }
-@media (max-width: 600px) {
-    button { font-size: 0.9em; padding: 8px; }
-}
 </style>
 </head>
+
 <body>
 
 <h2>Bài trắc nghiệm 20 câu</h2>
@@ -51,7 +59,7 @@ correct: 1
 },
 
 {
-q: "Đồng chí cho biết chức năng của công tác tuyên truyền miệng?",
+q: "Đồng chí cho biết chức năng của công tác tuyên truyền miệng ?",
 answers: [
 "Phổ biến thông tin. Định hướng tư tưởng. Hướng dẫn hành động",
 "Phổ biến thông tin. Định hướng tư tưởng. Cổ vũ hành động",
@@ -121,7 +129,8 @@ answers: [
 "Phó bí thư đảm nhiệm"
 ],
 correct: 1
-}
+},
+
 {
 q: "Đồng chí cho biết bước thứ ba trong quy trình tiến hành công tác quản lý tư tưởng quân nhân?",
 answers: [
@@ -222,10 +231,8 @@ answers: ["3 nội dung, hình thức","4 nội dung, hình thức","5 nội dun
 correct: 1
 }
 
-]; // kết thúc 20 câu
 ];
 
-// Xáo trộn câu hỏi
 shuffle(questions);
 
 const quizDiv = document.getElementById("quiz");
@@ -234,12 +241,10 @@ questions.forEach((q, index) => {
     const div = document.createElement("div");
     div.classList.add("question");
 
-    // Tạo tiêu đề với số thứ tự tự động
     const title = document.createElement("p");
     title.innerText = `Câu ${index + 1}: ${q.q}`;
     div.appendChild(title);
 
-    // Xáo trộn đáp án
     let answers = q.answers.map((a,i)=>({text:a, correct:i===q.correct}));
     shuffle(answers);
 
@@ -248,7 +253,8 @@ questions.forEach((q, index) => {
         btn.innerText = String.fromCharCode(65+i) + ". " + ans.text;
 
         btn.onclick = () => {
-            if(div.querySelector(".correct")) return; // khóa câu khi đúng
+            if(div.querySelector(".correct")) return;
+
             if(ans.correct){
                 btn.classList.add("correct");
                 btn.innerText += " ✅ Đúng";
@@ -257,6 +263,7 @@ questions.forEach((q, index) => {
                 btn.innerText += " ❌ Sai";
             }
         };
+
         div.appendChild(btn);
     });
 
