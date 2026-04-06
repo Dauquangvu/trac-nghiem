@@ -3,36 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trắc nghiệm 20 câu</title>
+<title>Trắc nghiệm</title>
 
 <style>
-body { font-family: Arial; padding: 10px; max-width: 800px; margin: auto; }
-h2 { text-align: center; }
-.question { margin-bottom: 25px; }
+body {
+    font-family: Arial;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.progress {
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 10px;
+    width: 0%;
+    background: #4CAF50;
+}
+
+.question {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
 button {
     display: block;
     width: 100%;
-    margin: 5px 0;
+    margin: 6px 0;
     padding: 10px;
     text-align: left;
-    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #eef1f5;
+    transition: 0.3s;
+    font-size: 15px;
 }
 
-.correct { color: green; font-weight: bold; }
-.wrong { color: red; font-weight: bold; }
+button:hover {
+    background: #dfe6ee;
+    cursor: pointer;
+}
+
+.correct {
+    background: #c8f7c5 !important;
+    color: green;
+    font-weight: bold;
+}
+
+.wrong {
+    background: #f7c5c5 !important;
+    color: red;
+    font-weight: bold;
+}
+
+.score {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
 </style>
 </head>
 
 <body>
 
-<h2>Bài trắc nghiệm 20 câu</h2>
+<div class="container">
+<h2>Bài trắc nghiệm</h2>
+
+<div class="score" id="score">Điểm: 0</div>
+
+<div class="progress">
+    <div class="progress-bar" id="progress"></div>
+</div>
+
 <div id="quiz"></div>
+</div>
 
 <script>
 function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
+
+let score = 0;
+let answered = 0;
 
 const questions = [
 
@@ -71,30 +145,45 @@ correct: 1
 
 {
 q: "Đồng chí cho biết Chỉ thị số 366/CT-ĐU của Ban Thường vụ Đảng ủy Sư đoàn về xây dựng “chi bộ bốn tốt”, “đảng bộ cơ sở bốn tốt\" xác định bao nhiêu nhiệm vụ, giải pháp?",
-answers: ["4 nhiệm vụ, giải pháp","5 nhiệm vụ, giải pháp","6 nhiệm vụ, giải pháp","7 nhiệm vụ, giải pháp"],
+answers: [
+"4 nhiệm vụ, giải pháp",
+"5 nhiệm vụ, giải pháp",
+"6 nhiệm vụ, giải pháp",
+"7 nhiệm vụ, giải pháp"
+],
 correct: 1
 },
 
 {
 q: "Đồng chí cho biết tên gọi Kết luận số 21-KL/TW của Ban Chấp hành Trung ương Đảng khóa XIII là gì?",
 answers: [
-"Về đẩy mạnh xây dựng, chỉnh đốn đảng; kiên quyết ngăn chặn, đẩy lùi, xử lý nghiêm cán bộ, đảng viên suy thoái...",
-"Về đẩy mạnh xây dựng, chỉnh đốn đảng và hệ thống chính trị; ngăn chặn, đẩy lùi...",
-"Về đẩy mạnh xây dựng, chỉnh đốn đảng và hệ thống chính trị; kiên quyết ngăn chặn, đẩy lùi, xử lý nghiêm...",
-"Về đẩy mạnh xây dựng, chỉnh đốn đảng và hệ thống chính trị; kiên quyết đẩy lùi..."
+"Về đẩy mạnh xây dựng, chỉnh đốn đảng; kiên quyết ngăn chặn, đẩy lùi, xử lý nghiêm cán bộ, đảng viên suy thoái về tư tưởng chính trị, đạo đức, lối sống, biểu hiện “tự diễn biến”, “tự chuyển hoá”.",
+"Về đẩy mạnh xây dựng, chỉnh đốn đảng và hệ thống chính trị; ngăn chặn, đẩy lùi, xử lý nghiêm cán bộ, đảng viên suy thoái về tư tưởng chính trị, đạo đức, lối sống, biểu hiện “tự diễn biến”, “tự chuyển hoá”.",
+"Về đẩy mạnh xây dựng, chỉnh đốn đảng và hệ thống chính trị; kiên quyết ngăn chặn, đẩy lùi, xử lý nghiêm cán bộ, đảng viên suy thoái về tư tưởng chính trị, đạo đức, lối sống, biểu hiện “tự diễn biến”, “tự chuyển hoá”.",
+"Về đẩy mạnh xây dựng, chỉnh đốn đảng và hệ thống chính trị; kiên quyết đẩy lùi, xử lý nghiêm cán bộ, đảng viên suy thoái về tư tưởng chính trị, đạo đức, lối sống, biểu hiện “tự diễn biến”, “tự chuyển hoá”."
 ],
 correct: 2
 },
 
 {
 q: "Đồng chí cho biết Quy định số 144-QĐ/TW ngày 09/5/2024 của Bộ Chính trị về chuẩn mực đạo đức cách mạng của cán bộ, đảng viên trong giai đoạn mới có mấy nội dung cơ bản?",
-answers: ["04 nội dung","05 nội dung","06 nội dung","07 nội dung"],
+answers: [
+"04 nội dung",
+"05 nội dung",
+"06 nội dung",
+"07 nội dung"
+],
 correct: 1
 },
 
 {
 q: "Đồng chí cho biết có mấy nguyên tắc tiến hành công tác tuyên truyền miệng?",
-answers: ["04 nhiệm vụ","05 nhiệm vụ","06 nhiệm vụ","10 nhiệm vụ"],
+answers: [
+"04 nhiệm vụ",
+"05 nhiệm vụ",
+"06 nhiệm vụ",
+"10 nhiệm vụ"
+],
 correct: 1
 },
 
@@ -121,113 +210,13 @@ correct: 1
 },
 
 {
-q: "Đồng chí cho biết báo cáo viên kiêm nhiệm ở cấp tiểu đoàn, đại đội và tương đương là ai?",
+q: "Đồng chí cho biết báo cáo viên kiêm nhiệm ở cấp tiểu đoàn, đại đội và đương đương là ai?",
 answers: [
 "Chính trị viên đảm nhiệm",
 "Chính trị viên hoặc Chính trị viên phó đảm nhiệm",
-"Bí thư Đảng ủy đảm nhiệm",
-"Phó bí thư đảm nhiệm"
+"Bí thư Đảng ủy (chi bộ) đảm nhiệm",
+"Bí thư hoặc phó bí thư Đảng ủy (chi bộ) đảm nhiệm"
 ],
-correct: 1
-},
-
-{
-q: "Đồng chí cho biết bước thứ ba trong quy trình tiến hành công tác quản lý tư tưởng quân nhân?",
-answers: [
-"Dự báo tình hình tư tưởng quân nhân",
-"Phân cấp quản lý, đánh giá, phân loại tư tưởng quân nhân",
-"Định hướng tư tưởng",
-"Phân cấp, đánh giá, phân loại tư tưởng quân nhân"
-],
-correct: 1
-},
-
-{
-q: "Đồng chí cho biết Sư đoàn 324 được tuyên dương Danh hiệu Anh hùng LLVTND lần thứ hai vào ngày, tháng, năm nào?",
-answers: [
-"Ngày 25/01/1973",
-"Ngày 25/01/1983",
-"Ngày 25/01/1986",
-"Ngày 25/01/1988"
-],
-correct: 1
-},
-
-{
-q: "Đồng chí cho biết bước thứ hai trong quy trình chuẩn bị bài giảng theo Hướng dẫn số 1136/HD-TH ngày 28/4/2016 của Cục Tuyên huấn, Tổng cục Chính trị?",
-answers: [
-"Nghiên cứu tài liệu, xử lý thông tin phục vụ bài giảng",
-"Nghiên cứu tổng quát chủ đề bài giảng và đối tượng người học",
-"Tổng hợp, xử lý và phân loại thông tin, sắp xếp các thông tin đã thu thập theo mục đích sư phạm",
-"Soạn bài giảng"
-],
-correct: 0
-},
-
-{
-q: "Đồng chí theo Chủ tịch Hồ Chí Minh công tác tuyên truyền được hiểu như thế nào?",
-answers: [
-"“Tuyên truyền là đem một việc gì nói cho dân nhớ, dân hiểu, dân theo, dân làm. Nếu không đạt được mục tiêu đó thì tuyên truyền thất bại”.",
-"“Tuyên truyền là đem một việc gì nói cho dân hiểu, dân nhớ, dân theo, dân làm. Nếu không đạt được mục tiêu đó thì tuyên truyền thất bại”.",
-"“Tuyên truyền là đem một việc gì nói cho dân làm, dân hiểu, dân theo, dân nhớ. Nếu không đạt được mục tiêu đó thì tuyên truyền thất bại”.",
-"“Tuyên truyền là đem một việc gì nói cho dân theo, dân hiểu, dân nhớ, dân làm. Nếu không đạt được mục tiêu đó thì tuyên truyền thất bại”."
-],
-correct: 0
-},
-
-{
-q: "Đồng chí cho biết báo cáo viên bán chuyên trách ở cấp Trung đoàn do ai đảm nhiệm?",
-answers: [
-"Trợ lý Tuyên huấn",
-"Trợ lý Tuyên huấn. Trợ lý CTQC",
-"Chủ nhiệm Chính trị. Trợ lý Tuyên huấn. Trợ lý CTQC",
-"Chủ nhiệm Chính trị"
-],
-correct: 0
-},
-
-{
-q: "Đồng chí cho biết Nghị quyết 847-NQ/QUTW của Quân ủy Trung ương xác định bao nhiêu đặc trưng cơ bản của phẩm chất “Bộ đội Cụ Hồ”?",
-answers: ["3 đặc trưng","4 đặc trưng","5 đặc trưng","6 đặc trưng"],
-correct: 2
-},
-
-{
-q: "Đồng chí cho biết lực lượng phối hợp của công tác quản lý tư tưởng quân nhân; nắm và định hướng dư luận trong QĐNDVN?",
-answers: [
-"Cấp ủy, chính quyền, đoàn thể địa phương, gia đình, người thân của quân nhân, các tổ chức quần chúng trong đơn vị.",
-"Cấp ủy, chính quyền, đoàn thể địa phương, gia đình, người thân của quân nhân.",
-"Cấp ủy, chính quyền, đoàn thể địa phương, gia đình, bạn bè, người thân của quân nhân.",
-"Cấp ủy, chính quyền, đoàn thể địa phương, các tổ chức CT-XH, gia đình, người thân của quân nhân."
-],
-correct: 1
-},
-
-{
-q: "Đồng chí cho biết Nhiệm vụ Phòng Hồ Chí Minh theo Quy chế tổ chức hoạt động của các thiết chế văn hóa trong Quân đội nhân dân Việt Nam?",
-answers: [
-"Tổ chức hoạt động các nhóm nghiệp vụ; hoạt động văn hóa - văn nghệ quần chúng và câu lạc bộ sở thích cho bộ đội. Phối hợp với cơ quan, đơn vị và các đoàn thể trên địa bàn đóng quân tổ chức giao lưu và các hoạt động văn hóa - văn nghệ.",
-"Tổ chức hoạt động các nhóm nghiệp vụ. Phối hợp với cơ quan, đơn vị và các đoàn thể trên địa bàn đóng quân tổ chức giao lưu và các hoạt động văn hóa - văn nghệ.",
-"Hướng dẫn hoạt động các nhóm nghiệp vụ; hoạt động văn hóa - văn nghệ quần chúng và câu lạc bộ sở thích cho bộ đội. Phối hợp với cơ quan, đơn vị và các đoàn thể trên địa bàn đóng quân tổ chức giao lưu và các hoạt động văn hóa - văn nghệ.",
-"Tổ chức hoạt động các nhóm nghiệp vụ; hoạt động văn hóa - văn nghệ quần chúng, TDTT và câu lạc bộ sở thích cho bộ đội. Phối hợp với cơ quan, đơn vị và các đoàn thể trên địa bàn đóng quân tổ chức giao lưu và các hoạt động văn hóa - văn nghệ."
-],
-correct: 0
-},
-
-{
-q: "Đồng chí cho biết phương châm của Đại hội đại biểu Đảng bộ Quân khu lần thứ XII nhiệm kỳ 2025-2030?",
-answers: [
-"“Đoàn kết - Dân chủ - Kỷ cương - Đổi mới - Phát triển”",
-"“Đoàn kết - Sáng tạo - Kỷ cương - Đột phá - Phát triển”",
-"“Đoàn kết - Mẫu mực - Kỷ cương - Đột phá - Phát triển”",
-"“Đoàn kết - Kỷ cương - Sáng tạo - Đột phá - Phát triển”"
-],
-correct: 0
-},
-
-{
-q: "Đồng chí cho biết Ngày Chính trị và văn hóa tinh thần ở cơ sở được quy định trong Hướng dẫn số 2779/HD-TH, ngày 20 tháng 9 năm 2016 của Cục Tuyên huấn, TCCT Quân đội nhân dân Việt Nam quy định có mấy nội dung, hình thức?",
-answers: ["3 nội dung, hình thức","4 nội dung, hình thức","5 nội dung, hình thức","6 nội dung, hình thức"],
 correct: 1
 }
 
@@ -242,7 +231,7 @@ questions.forEach((q, index) => {
     div.classList.add("question");
 
     const title = document.createElement("p");
-    title.innerText = `Câu ${index + 1}: ${q.q}`;
+    title.innerHTML = `<b>Câu ${index + 1}:</b> ${q.q}`;
     div.appendChild(title);
 
     let answers = q.answers.map((a,i)=>({text:a, correct:i===q.correct}));
@@ -253,15 +242,36 @@ questions.forEach((q, index) => {
         btn.innerText = String.fromCharCode(65+i) + ". " + ans.text;
 
         btn.onclick = () => {
-            if(div.querySelector(".correct")) return;
+            if(div.classList.contains("done")) return;
+            div.classList.add("done");
+
+            answered++;
 
             if(ans.correct){
                 btn.classList.add("correct");
-                btn.innerText += " ✅ Đúng";
+                btn.innerText += " ✅";
+                score++;
             } else {
                 btn.classList.add("wrong");
-                btn.innerText += " ❌ Sai";
+                btn.innerText += " ❌";
+
+                // hiện đáp án đúng
+                const buttons = div.querySelectorAll("button");
+                buttons.forEach(b => {
+                    if(b.innerText.includes(q.answers[q.correct])){
+                        b.classList.add("correct");
+                        b.innerText += " ⭐";
+                    }
+                });
             }
+
+            // cập nhật điểm
+            document.getElementById("score").innerText = 
+                "Điểm: " + score + "/" + questions.length;
+
+            // cập nhật progress
+            document.getElementById("progress").style.width = 
+                (answered / questions.length * 100) + "%";
         };
 
         div.appendChild(btn);
