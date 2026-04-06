@@ -12,73 +12,58 @@ body {
     margin: 0;
     padding: 20px;
 }
-
 .container {
     max-width: 900px;
     margin: auto;
 }
-
 h2 {
     text-align: center;
-    color: #333;
 }
-
-.progress {
-    background: #ddd;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.progress-bar {
-    height: 10px;
-    width: 0%;
-    background: #4CAF50;
-}
-
 .question {
-    background: white;
+    background: #fff;
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-
 button {
-    display: block;
     width: 100%;
-    margin: 6px 0;
+    margin: 5px 0;
     padding: 10px;
-    text-align: left;
     border: none;
     border-radius: 8px;
+    text-align: left;
     background: #eef1f5;
     transition: 0.3s;
-    font-size: 15px;
 }
-
 button:hover {
     background: #dfe6ee;
-    cursor: pointer;
 }
-
 .correct {
     background: #c8f7c5 !important;
     color: green;
     font-weight: bold;
 }
-
 .wrong {
     background: #f7c5c5 !important;
     color: red;
     font-weight: bold;
 }
-
 .score {
     text-align: center;
-    font-size: 18px;
-    margin-bottom: 15px;
     font-weight: bold;
+    margin-bottom: 10px;
+}
+.progress {
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.progress-bar {
+    height: 10px;
+    width: 0%;
+    background: #4CAF50;
 }
 </style>
 </head>
@@ -98,6 +83,8 @@ button:hover {
 </div>
 
 <script>
+
+// 🔀 Shuffle chuẩn
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -108,8 +95,8 @@ function shuffle(array) {
 let score = 0;
 let answered = 0;
 
+// 📌 DÁN CÂU HỎI VÀO ĐÂY
 const questions = [
-
 {
 q: "Đồng chí cho biết Thủ đoạn chiến lược “diễn biến hòa bình” của các thế lực thù địch chống phá cách mạng Việt Nam là gì?",
 answers: [
@@ -219,29 +206,38 @@ answers: [
 ],
 correct: 1
 }
-
 ];
 
+// 🔀 Trộn câu hỏi
 shuffle(questions);
 
 const quizDiv = document.getElementById("quiz");
 
+// 👉 Render câu hỏi
 questions.forEach((q, index) => {
+
     const div = document.createElement("div");
     div.classList.add("question");
 
     const title = document.createElement("p");
-    title.innerHTML = `<b>Câu ${index + 1}:</b> ${q.q}`;
+    title.innerHTML = "<b>Câu " + (index + 1) + ":</b> " + q.q;
     div.appendChild(title);
 
-    let answers = q.answers.map((a,i)=>({text:a, correct:i===q.correct}));
+    // 👉 GẮN ĐÚNG/SAI + TRỘN ĐÁP ÁN
+    let answers = q.answers.map((a,i)=>({
+        text: a,
+        correct: i === q.correct
+    }));
+
     shuffle(answers);
 
     answers.forEach((ans, i) => {
+
         const btn = document.createElement("button");
         btn.innerText = String.fromCharCode(65+i) + ". " + ans.text;
 
         btn.onclick = () => {
+
             if(div.classList.contains("done")) return;
             div.classList.add("done");
 
@@ -255,22 +251,22 @@ questions.forEach((q, index) => {
                 btn.classList.add("wrong");
                 btn.innerText += " ❌";
 
-                // hiện đáp án đúng
+                // 👉 HIỆN ĐÁP ÁN ĐÚNG
                 const buttons = div.querySelectorAll("button");
-                buttons.forEach(b => {
-                    if(b.innerText.includes(q.answers[q.correct])){
-                        b.classList.add("correct");
-                        b.innerText += " ⭐";
+                answers.forEach((a, idx) => {
+                    if(a.correct){
+                        buttons[idx].classList.add("correct");
+                        buttons[idx].innerText += " ⭐";
                     }
                 });
             }
 
-            // cập nhật điểm
-            document.getElementById("score").innerText = 
+            // 👉 CẬP NHẬT ĐIỂM
+            document.getElementById("score").innerText =
                 "Điểm: " + score + "/" + questions.length;
 
-            // cập nhật progress
-            document.getElementById("progress").style.width = 
+            // 👉 PROGRESS BAR
+            document.getElementById("progress").style.width =
                 (answered / questions.length * 100) + "%";
         };
 
@@ -279,6 +275,7 @@ questions.forEach((q, index) => {
 
     quizDiv.appendChild(div);
 });
+
 </script>
 
 </body>
