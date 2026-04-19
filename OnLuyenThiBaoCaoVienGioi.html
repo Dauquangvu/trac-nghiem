@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn Luyện Thi Báo Cáo Viên Giỏi – Trung Đoàn 1, Sư Đoàn 324</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:      #C8102E;
+  --red-dark: #8B0A1F;
+  --red-deep: #5C0012;
+  --gold:     #F5C518;
+  --gold-dim: #C9992A;
+  --green:    #1B4332;
+  --green-m:  #2D6A4F;
+  --cream:    #FFF8E7;
+  --white:    #FFFFFF;
+  --gray-light:#F0EBE3;
+  --gray:     #C9B99A;
+  --shadow:   0 8px 40px rgba(0,0,0,.35);
+  --radius:   14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Be Vietnam Pro',sans-serif;
+  background:#0d0d0d;
+  color:var(--cream);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── BACKGROUND ── */
+.bg-layer{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(200,16,46,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(245,197,24,.08) 0%, transparent 70%),
+    linear-gradient(160deg, #0d0d0d 0%, #1a0508 50%, #0d0d0d 100%);
+}
+.bg-stars{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle 1px at 15% 25%, rgba(245,197,24,.5) 0%, transparent 100%),
+    radial-gradient(circle 1px at 70% 15%, rgba(245,197,24,.4) 0%, transparent 100%),
+    radial-gradient(circle 1px at 85% 60%, rgba(245,197,24,.3) 0%, transparent 100%),
+    radial-gradient(circle 1px at 30% 75%, rgba(245,197,24,.4) 0%, transparent 100%),
+    radial-gradient(circle 1.5px at 55% 40%, rgba(245,197,24,.3) 0%, transparent 100%);
+}
+
+/* ── HEADER ── */
+.site-header{
+  position:relative;z-index:10;
+  background:linear-gradient(135deg, var(--red-deep) 0%, var(--red) 50%, var(--red-dark) 100%);
+  border-bottom:3px solid var(--gold);
+  padding:0;
+  box-shadow:0 4px 30px rgba(200,16,46,.5);
+}
+.header-top{
+  display:flex;align-items:center;justify-content:center;
+  gap:20px;padding:20px 24px 12px;
+}
+.star-emblem{
+  font-size:48px;line-height:1;
+  text-shadow:0 0 20px rgba(245,197,24,.8), 0 0 40px rgba(245,197,24,.4);
+  animation:starPulse 3s ease-in-out infinite;
+}
+@keyframes starPulse{
+  0%,100%{text-shadow:0 0 20px rgba(245,197,24,.8),0 0 40px rgba(245,197,24,.4);}
+  50%{text-shadow:0 0 30px rgba(245,197,24,1),0 0 60px rgba(245,197,24,.7);}
+}
+.header-titles{text-align:center;flex:1}
+.greeting-banner{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(13px,2vw,17px);
+  color:var(--gold);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:4px;
+  text-shadow:0 1px 4px rgba(0,0,0,.5);
+}
+.main-title{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(16px,2.5vw,22px);
+  font-weight:700;
+  color:var(--white);
+  text-shadow:0 2px 8px rgba(0,0,0,.6);
+  line-height:1.3;
+  margin-bottom:4px;
+}
+.sub-title{
+  font-size:clamp(13px,1.8vw,15px);
+  color:rgba(255,248,231,.8);
+  font-weight:500;
+}
+.header-bottom{
+  background:rgba(0,0,0,.25);
+  padding:10px 24px;
+  display:flex;align-items:center;justify-content:center;gap:40px;
+  border-top:1px solid rgba(245,197,24,.3);
+}
+.unit-badge{
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--gold);font-weight:700;
+  letter-spacing:1px;
+}
+.unit-badge::before{content:"⚔";font-size:18px;}
+
+/* ── NAV TABS ── */
+.nav-tabs{
+  position:relative;z-index:10;
+  display:flex;justify-content:center;gap:0;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(10px);
+  border-bottom:2px solid rgba(245,197,24,.2);
+  padding:0 24px;
+}
+.nav-tab{
+  padding:16px 48px;
+  cursor:pointer;
+  font-family:'Oswald',sans-serif;
+  font-size:16px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,248,231,.5);
+  border:none;background:none;
+  position:relative;
+  transition:color .3s;
+}
+.nav-tab::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;
+  background:var(--gold);transform:scaleX(0);transition:transform .3s;
+}
+.nav-tab.active{color:var(--gold);}
+.nav-tab.active::after{transform:scaleX(1);}
+.nav-tab:hover:not(.active){color:rgba(255,248,231,.8);}
+
+/* ── MAIN CONTENT ── */
+.main-content{
+  position:relative;z-index:5;
+  max-width:960px;margin:0 auto;
+  padding:32px 24px 60px;
+}
+
+/* ── SECTION VIEW ── */
+.section-view{display:none;}
+.section-view.active{display:block;}
+
+/* ── PRACTICE PANEL ── */
+.practice-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:28px;
+  flex-wrap:wrap;gap:12px;
+}
+.section-label{
+  font-family:'Oswald',sans-serif;
+  font-size:22px;color:var(--gold);
+  letter-spacing:2px;display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'📖';}
+.q-count-badge{
+  background:rgba(245,197,24,.15);
+  border:1px solid rgba(245,197,24,.4);
+  color:var(--gold);
+  padding:6px 16px;border-radius:50px;
+  font-size:14px;font-weight:600;
+}
+
+/* ── QUESTION CARD ── */
+.q-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.03) 100%);
+  border:1px solid rgba(245,197,24,.15);
+  border-radius:var(--radius);
+  padding:28px;
+  margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .3s;
+}
+.q-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--red),var(--gold),var(--red));
+  opacity:0;transition:opacity .3s;
+}
+.q-card.answered::before{opacity:1;}
+.q-card.answered{border-color:rgba(245,197,24,.3);}
+
+.q-number{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  color:var(--gold);font-weight:800;font-size:14px;
+  margin-bottom:12px;flex-shrink:0;
+  box-shadow:0 2px 8px rgba(200,16,46,.5);
+}
+.q-text{
+  font-size:16px;font-weight:600;line-height:1.65;
+  color:var(--cream);margin-bottom:20px;
+}
+
+.opts-grid{display:flex;flex-direction:column;gap:10px;}
+.opt-btn{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 18px;
+  border-radius:10px;
+  border:1.5px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  cursor:pointer;
+  text-align:left;
+  font-size:15px;font-weight:400;
+  color:var(--cream);
+  transition:all .2s;
+  width:100%;line-height:1.55;
+}
+.opt-btn:hover{
+  border-color:rgba(245,197,24,.5);
+  background:rgba(245,197,24,.08);
+  transform:translateX(4px);
+}
+.opt-label{
+  flex-shrink:0;
+  width:28px;height:28px;
+  border-radius:50%;
+  background:rgba(245,197,24,.15);
+  border:1.5px solid rgba(245,197,24,.4);
+  color:var(--gold);font-weight:700;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+}
+.opt-text{flex:1}
+
+/* Answer states */
+.opt-btn.correct{
+  border-color:#22c55e !important;
+  background:rgba(34,197,94,.15) !important;
+  color:#86efac !important;
+}
+.opt-btn.correct .opt-label{
+  background:#22c55e;border-color:#22c55e;color:#fff;
+}
+.opt-btn.wrong{
+  border-color:#ef4444 !important;
+  background:rgba(239,68,68,.15) !important;
+  color:#fca5a5 !important;
+}
+.opt-btn.wrong .opt-label{
+  background:#ef4444;border-color:#ef4444;color:#fff;
+}
+.opt-btn.show-correct{
+  border-color:#22c55e !important;
+  background:rgba(34,197,94,.12) !important;
+}
+.opt-btn.show-correct .opt-label{
+  background:#22c55e;border-color:#22c55e;color:#fff;
+}
+.opt-btn:disabled{cursor:default;transform:none !important;}
+
+.answer-note{
+  display:none;
+  margin-top:14px;padding:10px 16px;
+  border-radius:8px;
+  background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);
+  color:#86efac;font-size:14px;font-weight:500;
+}
+.answer-note.wrong-note{
+  background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);
+  color:#fca5a5;
+}
+.answer-note.show{display:flex;align-items:center;gap:8px;}
+
+/* ── EXAM PANEL ── */
+.exam-start-screen{
+  text-align:center;padding:60px 40px;
+  background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(245,197,24,.2);
+  border-radius:20px;
+}
+.exam-icon{font-size:72px;margin-bottom:20px;display:block;}
+.exam-start-title{
+  font-family:'Oswald',sans-serif;font-size:32px;
+  color:var(--gold);margin-bottom:12px;letter-spacing:2px;
+}
+.exam-rules{
+  max-width:480px;margin:24px auto;text-align:left;
+  display:flex;flex-direction:column;gap:12px;
+}
+.exam-rule{
+  display:flex;align-items:flex-start;gap:12px;
+  background:rgba(255,255,255,.05);
+  padding:12px 16px;border-radius:10px;
+  border-left:3px solid var(--red);
+  font-size:15px;color:rgba(255,248,231,.85);
+}
+.rule-icon{font-size:20px;flex-shrink:0;}
+
+.btn-start-exam{
+  margin-top:32px;
+  padding:18px 56px;
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  border:2px solid var(--gold);
+  color:var(--gold);
+  font-family:'Oswald',sans-serif;
+  font-size:18px;letter-spacing:3px;text-transform:uppercase;
+  border-radius:50px;cursor:pointer;
+  box-shadow:0 4px 24px rgba(200,16,46,.5);
+  transition:all .3s;
+}
+.btn-start-exam:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 32px rgba(200,16,46,.7);
+  background:linear-gradient(135deg,var(--red-dark),var(--red));
+}
+
+/* Exam header bar */
+.exam-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(0,0,0,.4);
+  border:1px solid rgba(245,197,24,.2);
+  border-radius:12px;padding:14px 22px;
+  margin-bottom:24px;flex-wrap:wrap;gap:12px;
+  backdrop-filter:blur(8px);
+}
+.exam-bar-item{display:flex;align-items:center;gap:8px;font-size:15px;}
+.exam-bar-item .label{color:var(--gray);font-size:13px;}
+.exam-bar-item .value{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--gold);}
+.exam-bar-item .value.danger{color:#ef4444;animation:blink .8s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+.progress-bar-wrap{
+  height:6px;background:rgba(255,255,255,.1);
+  border-radius:4px;overflow:hidden;margin-bottom:24px;
+}
+.progress-bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--red),var(--gold));
+  border-radius:4px;transition:width .4s ease;
+}
+
+.exam-q-indicator{
+  font-size:13px;color:var(--gray);margin-bottom:8px;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;
+}
+
+/* Exam navigation */
+.exam-nav{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:24px;gap:12px;flex-wrap:wrap;
+}
+.btn-nav{
+  padding:12px 28px;border-radius:8px;
+  font-size:14px;font-weight:600;cursor:pointer;
+  border:1.5px solid rgba(245,197,24,.4);
+  background:rgba(245,197,24,.08);
+  color:var(--gold);transition:all .2s;
+}
+.btn-nav:hover{background:rgba(245,197,24,.18);transform:translateY(-1px);}
+.btn-nav:disabled{opacity:.3;cursor:default;transform:none;}
+.btn-submit-exam{
+  padding:14px 36px;border-radius:8px;
+  font-family:'Oswald',sans-serif;
+  font-size:16px;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  color:var(--gold);border:2px solid var(--gold);
+  transition:all .3s;box-shadow:0 4px 16px rgba(200,16,46,.4);
+}
+.btn-submit-exam:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(200,16,46,.6);
+}
+
+/* Question overview dots */
+.q-overview{
+  display:flex;flex-wrap:wrap;gap:6px;
+  background:rgba(0,0,0,.3);
+  padding:16px;border-radius:12px;
+  margin-bottom:20px;
+  border:1px solid rgba(255,255,255,.08);
+}
+.q-dot{
+  width:32px;height:32px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;cursor:pointer;
+  border:1.5px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.07);
+  color:rgba(255,248,231,.6);
+  transition:all .2s;
+}
+.q-dot:hover{border-color:rgba(245,197,24,.6);color:var(--gold);}
+.q-dot.answered{background:rgba(34,197,94,.2);border-color:#22c55e;color:#86efac;}
+.q-dot.current{border-color:var(--gold);background:rgba(245,197,24,.2);color:var(--gold);}
+
+/* ── RESULT SCREEN ── */
+.result-screen{
+  text-align:center;
+  padding:48px 40px;
+  background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border-radius:20px;
+  border:1px solid rgba(245,197,24,.25);
+}
+.result-score-ring{
+  width:160px;height:160px;
+  margin:0 auto 28px;
+  border-radius:50%;
+  background:conic-gradient(var(--gold) var(--pct,0deg), rgba(255,255,255,.1) 0deg);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  box-shadow:0 0 40px rgba(245,197,24,.3);
+}
+.result-score-inner{
+  width:120px;height:120px;border-radius:50%;
+  background:linear-gradient(145deg,#1a0508,#0d0d0d);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;z-index:1;
+}
+.result-score-num{
+  font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;
+  color:var(--gold);line-height:1;
+}
+.result-score-denom{
+  font-size:14px;color:var(--gray);
+}
+.result-title{
+  font-family:'Oswald',sans-serif;font-size:28px;
+  color:var(--gold);margin-bottom:10px;letter-spacing:2px;
+}
+.result-msg{
+  font-size:16px;line-height:1.7;
+  color:rgba(255,248,231,.85);
+  max-width:500px;margin:0 auto 28px;
+}
+.result-badges{
+  display:flex;justify-content:center;gap:20px;flex-wrap:wrap;
+  margin-bottom:32px;
+}
+.result-badge{
+  padding:10px 24px;border-radius:50px;
+  font-size:14px;font-weight:600;
+  display:flex;align-items:center;gap:6px;
+}
+.badge-correct{background:rgba(34,197,94,.15);border:1.5px solid #22c55e;color:#86efac;}
+.badge-wrong{background:rgba(239,68,68,.15);border:1.5px solid #ef4444;color:#fca5a5;}
+.badge-skip{background:rgba(156,163,175,.15);border:1.5px solid #6b7280;color:#9ca3af;}
+
+.btn-review{
+  padding:14px 40px;border-radius:10px;
+  font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;margin:0 8px;
+  border:1.5px solid rgba(245,197,24,.5);
+  background:rgba(245,197,24,.1);
+  color:var(--gold);transition:all .2s;
+}
+.btn-review:hover{background:rgba(245,197,24,.2);}
+.btn-retry{
+  padding:14px 40px;border-radius:10px;
+  font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;margin:0 8px;
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  color:var(--gold);border:2px solid var(--gold);
+  box-shadow:0 4px 16px rgba(200,16,46,.4);
+  transition:all .2s;
+}
+.btn-retry:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,16,46,.6);}
+
+/* Review panel */
+.review-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:24px;flex-wrap:wrap;gap:12px;
+}
+.review-title{
+  font-family:'Oswald',sans-serif;font-size:22px;
+  color:var(--gold);letter-spacing:2px;
+}
+.btn-back-result{
+  padding:10px 20px;border-radius:8px;
+  font-size:14px;cursor:pointer;
+  border:1.5px solid rgba(245,197,24,.4);
+  background:transparent;color:var(--gold);transition:all .2s;
+}
+.btn-back-result:hover{background:rgba(245,197,24,.1);}
+
+.review-q-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1.5px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);padding:24px;margin-bottom:16px;
+  position:relative;overflow:hidden;
+}
+.review-q-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+}
+.review-q-card.is-correct::before{background:#22c55e;}
+.review-q-card.is-wrong::before{background:#ef4444;}
+.review-q-card.is-skip::before{background:#6b7280;}
+.review-result-tag{
+  font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;
+  float:right;margin-left:12px;
+}
+.tag-correct{background:rgba(34,197,94,.2);color:#86efac;}
+.tag-wrong{background:rgba(239,68,68,.2);color:#fca5a5;}
+.tag-skip{background:rgba(107,114,128,.2);color:#9ca3af;}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:rgba(255,255,255,.05);}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px;}
+
+/* ── Floating back to top ── */
+.back-to-top{
+  position:fixed;bottom:24px;right:24px;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--red);border:2px solid var(--gold);
+  color:var(--gold);font-size:20px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:100;
+  box-shadow:var(--shadow);
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.back-to-top.show{opacity:1;pointer-events:all;}
+
+/* Divider */
+.gold-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);
+  margin:32px 0;opacity:.4;
+}
+
+/* ── Animations ── */
+.q-card{animation:fadeSlideIn .35s ease both;}
+@keyframes fadeSlideIn{
+  from{opacity:0;transform:translateY(16px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.q-card:nth-child(2){animation-delay:.05s;}
+.q-card:nth-child(3){animation-delay:.10s;}
+.q-card:nth-child(4){animation-delay:.15s;}
+.q-card:nth-child(5){animation-delay:.20s;}
+
+/* Mobile */
+@media(max-width:600px){
+  .nav-tab{padding:14px 20px;font-size:13px;letter-spacing:1px;}
+  .q-card{padding:20px 16px;}
+  .exam-start-screen{padding:40px 20px;}
+  .result-screen{padding:40px 20px;}
+  .exam-bar{flex-direction:column;align-items:flex-start;}
+  .q-overview{gap:4px;}
+  .q-dot{width:26px;height:26px;font-size:10px;}
+  .btn-review,.btn-retry{padding:12px 24px;font-size:13px;}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+<div class="bg-stars"></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="star-emblem">⭐</div>
+    <div class="header-titles">
+      <div class="greeting-banner">✦ Nhiệt Liệt Chào Mừng Chính Ủy Đến Với Trang Ôn Luyện ✦</div>
+      <div class="main-title">ÔN LUYỆN THI BÁO CÁO VIÊN GIỎI CẤP QUÂN KHU NĂM 2026</div>
+      <div class="sub-title">Nghị quyết XIV • Đảng và Tổ Quốc • Quân đội Nhân Dân Việt Nam</div>
+    </div>
+    <div class="star-emblem">⭐</div>
+  </div>
+  <div class="header-bottom">
+    <div class="unit-badge">Trung Đoàn 1 – Sư Đoàn 324</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-tabs">
+  <button class="nav-tab active" onclick="switchTab('practice')">📚 Ôn Luyện</button>
+  <button class="nav-tab" onclick="switchTab('exam')">🎯 Thi Thật</button>
+</nav>
+
+<!-- MAIN -->
+<div class="main-content">
+
+  <!-- PRACTICE -->
+  <div id="practiceSection" class="section-view active">
+    <div class="practice-header">
+      <div class="section-label" style="font-family:'Oswald',sans-serif;font-size:20px;">Ôn Luyện – Tất Cả Câu Hỏi</div>
+      <div class="q-count-badge" id="practiceCount">75 câu hỏi</div>
+    </div>
+    <div id="practiceList"></div>
+  </div>
+
+  <!-- EXAM -->
+  <div id="examSection" class="section-view">
+
+    <!-- Start screen -->
+    <div id="examStart">
+      <div class="exam-start-screen">
+        <span class="exam-icon">🎖️</span>
+        <div class="exam-start-title">BÀI THI NHẬN THỨC</div>
+        <p style="color:var(--gray);font-size:15px;margin-bottom:8px;">Hội Thi Báo Cáo Viên Giỏi Cấp Quân Khu Năm 2026</p>
+        <div class="exam-rules">
+          <div class="exam-rule"><span class="rule-icon">📝</span><span><b>50 câu hỏi</b> ngẫu nhiên từ ngân hàng đề</span></div>
+          <div class="exam-rule"><span class="rule-icon">⏱️</span><span>Thời gian làm bài: <b>45 phút</b></span></div>
+          <div class="exam-rule"><span class="rule-icon">🔀</span><span>Câu hỏi và đáp án được xáo trộn ngẫu nhiên mỗi lần thi</span></div>
+          <div class="exam-rule"><span class="rule-icon">✅</span><span>Chỉ được chọn <b>một đáp án</b> cho mỗi câu</span></div>
+          <div class="exam-rule"><span class="rule-icon">📊</span><span>Kết quả hiển thị ngay sau khi nộp bài</span></div>
+        </div>
+        <button class="btn-start-exam" onclick="startExam()">🚀 Bắt Đầu Thi</button>
+      </div>
+    </div>
+
+    <!-- Exam doing -->
+    <div id="examDoing" style="display:none;">
+      <div class="exam-bar">
+        <div class="exam-bar-item">
+          <span class="label">Câu</span>
+          <span class="value" id="examCurrentQ">1/50</span>
+        </div>
+        <div class="exam-bar-item">
+          <span class="label">Đã trả lời</span>
+          <span class="value" id="examAnswered">0</span>
+        </div>
+        <div class="exam-bar-item">
+          <span class="label">⏱ Thời gian còn</span>
+          <span class="value" id="examTimer">45:00</span>
+        </div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="examProgress" style="width:2%"></div>
+      </div>
+      <div class="q-overview" id="examDots"></div>
+      <div id="examQCard"></div>
+      <div class="exam-nav">
+        <button class="btn-nav" id="btnPrev" onclick="examNav(-1)">← Câu Trước</button>
+        <button class="btn-nav" id="btnNext" onclick="examNav(1)">Câu Tiếp →</button>
+        <button class="btn-submit-exam" onclick="confirmSubmit()">📤 Nộp Bài</button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div id="examResult" style="display:none;"></div>
+
+    <!-- Review -->
+    <div id="examReview" style="display:none;"></div>
+
+  </div><!-- /examSection -->
+
+</div><!-- /main-content -->
+
+<button class="back-to-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ═══════════════════════════════════════════
+   QUESTION BANK – 75 questions
+   opts: [A, B, C, D]  ans: 0-indexed correct
+═══════════════════════════════════════════ */
+const BANK = [
+  {q:"Đồng chí cho biết phương châm Đại hội Đại biểu toàn quốc lần thứ XIV của Đảng?",opts:["Đoàn Kết – Đổi mới – Kỷ cương – Đột phá – Phát triển","Đoàn Kết – Đổi mới – Kỷ cương – Sáng tạo – Phát triển","Đoàn Kết – Dân chủ – Kỷ cương – Đột phá – Phát triển","Đoàn Kết – Dân chủ – Kỷ cương – Sáng tạo – Phát triển"],ans:2},
+  {q:"Đồng chí cho biết chủ đề Đại hội Đại biểu toàn quốc lần thứ XIV của Đảng?",opts:["\"Dưới lá cờ vẻ vang của Đảng, chung sức, đồng lòng quyết tâm thực hiện thắng lợi các mục tiêu phát triển đất nước đến năm 2030; tự tin, tiến mạnh trong kỷ nguyên vươn mình của dân tộc, vì hoà bình, độc lập, dân chủ, giàu mạnh, phồn vinh, văn minh, hạnh phúc, vững bước đi lên chủ nghĩa xã hội\".","\"Dưới lá cờ vẻ vang của Đảng, chung sức, đồng lòng thực hiện thắng lợi các mục tiêu phát triển đất nước đến năm 2030; tự cường, tự chủ chiến lược, tự cường, tự tin, tiến mạnh trong kỷ nguyên vươn mình của dân tộc, vì hoà bình, độc lập, dân chủ, giàu mạnh, phồn vinh, văn minh, hạnh phúc, vững bước đi lên chủ nghĩa xã hội\".","\"Dưới lá cờ vẻ vang của Đảng, chung sức, đồng lòng quyết tâm thực hiện thắng lợi các mục tiêu phát triển đất nước đến năm 2045; tự cường, tự tin, tiến mạnh trong kỷ nguyên vươn mình của dân tộc, vì hoà bình, độc lập, dân chủ, giàu mạnh, phồn vinh, văn minh, hạnh phúc, vững bước đi lên chủ nghĩa xã hội\".","\"Dưới lá cờ vẻ vang của Đảng, chung sức, đồng lòng quyết tâm thực hiện thắng lợi các mục tiêu phát triển đất nước đến năm 2045; tự tin, tiến mạnh trong kỷ nguyên vươn mình của dân tộc, vì hoà bình, độc lập, dân chủ, giàu mạnh, phồn vinh, văn minh, hạnh phúc, vững bước đi lên chủ nghĩa xã hội\"."],ans:1},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định sau 40 năm đổi mới, yếu tố nào của đất nước được nâng lên rõ nét?",opts:["Quy mô dân số","Cơ đồ, tiềm lực, vị thế và uy tín quốc tế","Tiềm lực kinh tế","Khoa học công nghệ"],ans:1},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định nguy cơ bao trùm lớn nhất là gì?",opts:["Suy giảm văn hoá","Tụt hậu, nhất là về công nghệ và bẫy thu nhập trung bình","Gia tăng dân số nhanh","Thiếu lao động phổ thông"],ans:1},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định giai đoạn hiện nay được xác định là gì?",opts:["Giai đoạn ổn định","Giai đoạn phát triển","Bước ngoặt, vận hội mới mang tính lịch sử","Thời kỳ bức phát bước ngoặt"],ans:2},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định mối quan hệ trung tâm – then chốt – nền tảng – trọng yếu là gì?",opts:["Kinh tế – văn hoá – xã hội – môi trường","Phát triển kinh tế – xây dựng Đảng – văn hoá, con người – quốc phòng, an ninh, đối ngoại","Công nghiệp – nông nghiệp – dịch vụ – đô thị","Nhà nước – thị trường – xã hội – doanh nghiệp"],ans:1},
+  {q:"Báo cáo tổng kết một số vấn đề lý luận và thực tiễn về công cuộc đổi mới theo định hướng xã hội chủ nghĩa trong 40 năm qua ở Việt Nam xác định quan điểm về nền kinh tế chủ đạo như thế nào?",opts:["Kinh tế tư nhân giữ vai trò chủ đạo trong việc bảo đảm các cân đối lớn, định hướng chiến lược, dẫn dắt nền kinh tế.","Kinh tế nhà nước giữ vai trò chủ đạo trong việc bảo đảm các cân đối lớn, định hướng chiến lược, dẫn dắt nền kinh tế.","Kinh tế tập thể giữ vai trò chủ đạo trong việc bảo đảm các cân đối lớn, định hướng chiến lược, dẫn dắt nền kinh tế.","Kinh tế có vốn đầu tư nước ngoài giữ vai trò chủ đạo trong việc bảo đảm các cân đối lớn, định hướng chiến lược, dẫn dắt nền kinh tế."],ans:1},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định động lực chính của mô hình tăng trưởng mới là gì?",opts:["Lao động trẻ","Kinh tế nhà nước","Khoa học công nghệ, đổi mới sáng tạo, chuyển đổi số","Tài nguyên và khoáng sản"],ans:2},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định động lực quan trọng nhất của nền kinh tế là gì?",opts:["Kinh tế tập thể","Kinh tế có vốn đầu tư nước ngoài","Kinh tế tư nhân","Kinh tế hộ gia đình"],ans:2},
+  {q:"Báo cáo tổng kết một số vấn đề lý luận và thực tiễn về công cuộc đổi mới theo định hướng xã hội chủ nghĩa trong 40 năm qua ở Việt Nam xác định định hướng mục tiêu chung như thế nào?",opts:["Phấn đấu đến năm 2030 Việt Nam là nước đang phát triển, có công nghiệp hiện đại, thu nhập trung bình cao; đời sống của Nhân dân được nâng cao và hiện thực hoá tầm nhìn đến năm 2045 trở thành nước phát triển, thu nhập cao, vì một nước Việt Nam hoà bình, độc lập, dân chủ, giàu mạnh, phồn vinh, văn minh, hạnh phúc, vững bước đi lên CNXH.","Phấn đấu đến năm 2030 Việt Nam là nước đang phát triển, có công nghiệp hiện đại, thu nhập trung bình cao; tầm nhìn đến năm 2045 trở thành nước phát triển, thu nhập cao, vì một nước Việt Nam hoà bình, độc lập, dân chủ, giàu mạnh, phồn vinh, văn minh, hạnh phúc, vững bước đi lên CNXH.","Phấn đấu đến năm 2030 Việt Nam là nước đang phát triển, có công nghiệp hiện đại, thu nhập trung bình cao; đời sống của Nhân dân được nâng cao và hiện thực hoá tầm nhìn đến năm 2045 trở thành nước phát triển, thu nhập trung bình cao, vì một nước Việt Nam hoà bình, độc lập, dân chủ, giàu mạnh, phồn vinh, văn minh, hạnh phúc, vững bước đi lên CNXH.","Phấn đấu đến năm 2030 Việt Nam là nước phát triển, có công nghiệp hiện đại, thu nhập trung bình cao; tầm nhìn đến năm 2045 trở thành nước phát triển, thu nhập cao, vì một nước Việt Nam hoà bình, độc lập, dân chủ, giàu mạnh, phồn vinh, văn minh, hạnh phúc, vững bước đi lên CNXH."],ans:0},
+  {q:"Báo cáo tổng kết 15 năm thi hành Điều lệ Đảng (2011–2025) và đề xuất, định hướng bổ sung, sửa đổi Điều lệ Đảng xác định một trong những nguyên tắc bổ sung, sửa đổi Điều lệ Đảng như thế nào?",opts:["Xây dựng Đảng và hệ thống chính trị trong sạch, vững mạnh, xây dựng Nhà nước pháp quyền XHCN tinh gọn, trong sạch, vững mạnh, hoạt động hiệu lực, hiệu quả.","Xây dựng Đảng và hệ thống chính trị trong sạch, vững mạnh toàn diện, xây dựng Nhà nước pháp quyền tinh gọn, trong sạch, vững mạnh, hoạt động hiệu lực, hiệu quả.","Xây dựng Đảng và hệ thống chính trị trong sạch, vững mạnh toàn diện, xây dựng Nhà nước pháp quyền XHCN tinh gọn, trong sạch, vững mạnh, hoạt động hiệu lực, hiệu quả.","Xây dựng Đảng và hệ thống chính trị trong sạch, vững mạnh toàn diện, mẫu mực tiêu biểu, xây dựng Nhà nước pháp quyền XHCN tinh gọn, trong sạch, vững mạnh, hoạt động hiệu lực, hiệu quả."],ans:2},
+  {q:"Báo cáo tổng kết một số vấn đề lý luận và thực tiễn về công cuộc đổi mới theo định hướng xã hội chủ nghĩa trong 40 năm qua ở Việt Nam xác định mục tiêu xây dựng Đảng và hệ thống chính trị như thế nào?",opts:["Xây dựng Đảng và hệ thống chính trị trong sạch, vững mạnh, xây dựng Nhà nước pháp quyền XHCN tinh gọn, trong sạch, vững mạnh, hoạt động hiệu lực, hiệu quả.","Xây dựng Đảng và hệ thống chính trị trong sạch, vững mạnh toàn diện, xây dựng Nhà nước pháp quyền tinh gọn, trong sạch, vững mạnh, hoạt động hiệu lực, hiệu quả.","Xây dựng Đảng và hệ thống chính trị trong sạch, vững mạnh toàn diện, xây dựng Nhà nước pháp quyền XHCN tinh gọn, trong sạch, vững mạnh, hoạt động hiệu lực, hiệu quả.","Xây dựng Đảng và hệ thống chính trị trong sạch, vững mạnh toàn diện, mẫu mực tiêu biểu, xây dựng Nhà nước pháp quyền XHCN tinh gọn, trong sạch, vững mạnh, hoạt động hiệu lực, hiệu quả."],ans:2},
+  {q:"Báo cáo tổng kết 15 năm thi hành Điều lệ Đảng (2011–2025) và đề xuất, định hướng bổ sung, sửa đổi Điều lệ Đảng quy định về thời hiệu kỷ luật của Đảng và của Nhà nước như thế nào?",opts:["Đối với hành vi vi phạm phải kỷ luật bằng hình thức khiển trách, thời hiệu kỷ luật đảng là 2 năm, thời hiệu xử lý kỷ luật hành chính là 5 năm; đối với vi phạm phải xử lý kỷ luật bằng hình thức cảnh cáo thì thời hiệu kỷ luật đảng là 10 năm, thời hiệu kỷ luật hành chính là 5 năm.","Đối với hành vi vi phạm phải kỷ luật bằng hình thức khiển trách, thời hiệu kỷ luật đảng là 5 năm, thời hiệu xử lý kỷ luật hành chính là 2 năm; đối với vi phạm phải xử lý kỷ luật bằng hình thức cảnh cáo thì thời hiệu kỷ luật đảng là 10 năm, thời hiệu kỷ luật hành chính là 5 năm.","Đối với hành vi vi phạm phải kỷ luật bằng hình thức khiển trách, thời hiệu kỷ luật đảng là 2 năm, thời hiệu xử lý kỷ luật hành chính là 5 năm; đối với vi phạm phải xử lý kỷ luật bằng hình thức cảnh cáo thì thời hiệu kỷ luật đảng là 5 năm, thời hiệu kỷ luật hành chính là 10 năm.","Đối với hành vi vi phạm phải kỷ luật bằng hình thức khiển trách, thời hiệu kỷ luật đảng là 5 năm, thời hiệu xử lý kỷ luật hành chính là 2 năm; đối với vi phạm phải xử lý kỷ luật bằng hình thức cảnh cáo thì thời hiệu kỷ luật đảng là 5 năm, thời hiệu kỷ luật hành chính là 10 năm."],ans:1},
+  {q:"Báo cáo tổng kết 15 năm thi hành Điều lệ Đảng (2011–2025) và đề xuất, định hướng bổ sung, sửa đổi Điều lệ Đảng xác định một trong những nguyên tắc bổ sung, sửa đổi Điều lệ Đảng như thế nào?",opts:["Điều lệ Đảng không nên quy định quá chi tiết, cụ thể. Những nội dung trong quy định thi hành Điều lệ Đảng đã rõ, phù hợp với mô hình tổng thể tổ chức bộ máy của hệ thống chính trị và thực tiễn để nghiên cứu bổ sung, sửa đổi.","Điều lệ Đảng không nên quy định quá chi tiết, cụ thể. Những nội dung trong quy định thi hành Điều lệ Đảng đã rõ, phù hợp với mô hình tổng thể tổ chức bộ máy của hệ thống chính trị và thực tiễn thì nghiên cứu bổ sung, sửa đổi.","Điều lệ Đảng nên quy định chi tiết, cụ thể. Những nội dung trong quy định thi hành Điều lệ Đảng phải rõ, phù hợp với mô hình tổng thể tổ chức bộ máy của hệ thống chính trị và thực tiễn thì nghiên cứu bổ sung, sửa đổi.","Điều lệ Đảng nên quy định chi tiết, cụ thể. Những nội dung trong quy định thi hành Điều lệ Đảng phải rõ, phù hợp với mô hình tổng thể tổ chức bộ máy của hệ thống chính trị và thực tiễn để nghiên cứu bổ sung, sửa đổi."],ans:1},
+  {q:"Trong báo cáo đánh giá 5 năm thực hiện chiến lược phát triển kinh tế xã hội 10 năm 2021–2030, xác định tốc độ tăng tổng sản phẩm trong nước (GDP) bình quân giai đoạn 2021–2025 đạt bao nhiêu %?",opts:["Khoảng 6,3%/năm","Khoảng 6,5%/năm","Khoảng 6,7%/năm","Khoảng 6,8%/năm"],ans:0},
+  {q:"Trong báo cáo đánh giá 5 năm thực hiện chiến lược phát triển kinh tế xã hội 10 năm 2021–2030, xác định tỉ lệ huy động vào ngân sách nhà nước bình quân giai đoạn 2021–2025 đạt bao nhiêu %?",opts:["Khoảng 15% GDP","Khoảng 18% GDP","Khoảng 20% GDP","Khoảng 22% GDP"],ans:1},
+  {q:"Trong báo cáo đánh giá 5 năm thực hiện chiến lược phát triển kinh tế xã hội 10 năm 2021–2030, xác định tỉ lệ bội chi ngân sách giai đoạn 2021–2025 đạt bao nhiêu %?",opts:["Khoảng 3,0–3,1% GDP","Khoảng 3,1–3,2% GDP","Khoảng 3,2–3,3% GDP","Khoảng 3,3–3,4% GDP"],ans:1},
+  {q:"Trong báo cáo tổng kết công tác xây dựng Đảng nhiệm kỳ Đại hội XIII và phương hướng, giải pháp công tác xây dựng Đảng nhiệm kỳ Đại hội XIV, quy định việc đổi thẻ đảng viên như thế nào?",opts:["Tiến hành đổi thẻ đảng viên trong toàn Đảng, đáp ứng yêu cầu phát triển công nghệ và nâng cao hiệu quả công tác quản lý đảng viên.","Tiến hành đổi thẻ đảng viên trong toàn Đảng, đáp ứng yêu cầu phát triển đội ngũ đảng viên và nâng cao hiệu quả công tác quản lý đảng viên.","Tiến hành đổi thẻ đảng viên trong toàn Đảng, đáp ứng yêu cầu phát triển chuyển đổi số và nâng cao hiệu quả công tác quản lý đảng viên.","Tiến hành đổi thẻ đảng viên trong toàn Đảng, đáp ứng yêu cầu phát triển khoa học công nghệ và nâng cao hiệu quả công tác quản lý đảng viên."],ans:3},
+  {q:"Trong báo cáo tổng kết công tác xây dựng Đảng nhiệm kỳ Đại hội XIII và phương hướng, giải pháp công tác xây dựng Đảng nhiệm kỳ Đại hội XIV, xác định phương châm tiến hành công tác phòng, chống tham nhũng, lãng phí, tiêu cực như thế nào?",opts:["Phương châm \"không ngừng nghỉ\", \"không có vùng cấm\", \"không có ngoại lệ\".","Phương châm \"không ngừng, không nghỉ\", \"không có vùng cấm\", \"không có ngoại lệ\".","Phương châm \"không ngừng nghỉ\", \"không nản\", \"không có vùng cấm\", \"không có ngoại lệ\".","Phương châm \"không ngừng, không nghỉ\", \"không nản\", \"không có vùng cấm\", \"không có ngoại lệ\"."],ans:1},
+  {q:"Trong báo cáo tổng kết công tác xây dựng Đảng nhiệm kỳ Đại hội XIII và phương hướng, giải pháp công tác xây dựng Đảng nhiệm kỳ Đại hội XIV, xác định nhiệm vụ, giải pháp xây dựng Đảng về tư tưởng như thế nào?",opts:["Công tác tư tưởng phải được tiến hành đồng bộ, tích cực, thường xuyên, sát thực tiễn.","Công tác tư tưởng phải được tiến hành đồng bộ, tích cực, thường xuyên, sâu sát thực tiễn.","Công tác tư tưởng phải được tiến hành chủ động, tích cực, thường xuyên, sát thực tiễn.","Công tác tư tưởng phải được tiến hành chủ động, tích cực, thường xuyên, sâu sát thực tiễn."],ans:2},
+  {q:"Đồng chí cho biết kết quả bầu Đại biểu Đại hội Đảng bộ Quân đội dự Đại hội đại biểu toàn quốc lần thứ XIV của Đảng?",opts:["Bầu 48 đồng chí (45 đại biểu chính thức, 3 đại biểu dự khuyết) và 15 đại biểu đương nhiên.","Bầu 48 đồng chí (45 đại biểu chính thức, 3 đại biểu dự khuyết) và 16 đại biểu đương nhiên.","Bầu 50 đồng chí (45 đại biểu chính thức, 5 đại biểu dự khuyết) và 15 đại biểu đương nhiên.","Bầu 50 đồng chí (45 đại biểu chính thức, 5 đại biểu dự khuyết) và 16 đại biểu đương nhiên."],ans:1},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định an sinh xã hội?",opts:["Đơn tầng","Đa tầng","Có điều kiện","Khu vực"],ans:1},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định văn hoá ngang tầm?",opts:["Kinh tế","Chính trị, kinh tế, xã hội","Quốc phòng","Đối ngoại"],ans:1},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định vai trò văn hoá?",opts:["Quan trọng","Động lực","Nền tảng, động lực, điều tiết","Đặc biệt"],ans:2},
+  {q:"Báo cáo chính trị của Ban Chấp hành Trung ương Đảng khoá XIII tại Đại hội đại biểu toàn quốc lần thứ XIV của Đảng xác định ngoại giao Việt Nam?",opts:["Đa phương","Toàn diện","Tiên phong, toàn diện, hiện đại","Hiện đại"],ans:2},
+  {q:"Phương châm Đại hội Đảng bộ Quân đội lần thứ XII là gì?",opts:["Đoàn kết – Đổi mới – Phát triển – Bền vững","Dân chủ – Kỷ cương – Trách nhiệm – Hiệu quả","Đoàn kết – Dân chủ – Kỷ cương – Kiên định – Đột phá – Phát triển","Kiên định – Đổi mới – Hội nhập – Phát triển"],ans:2},
+  {q:"Cuộc Cách mạng công nghiệp lần thứ tư tác động mạnh nhất đến lĩnh vực nào của hoạt động quân sự?",opts:["Tổ chức biên chế","Nghệ thuật quân sự và phương thức tác chiến","Vũ khí trang bị","Khoa học công nghệ quân sự"],ans:1},
+  {q:"Quân đội giữ vai trò gì trong xây dựng nền quốc phòng toàn dân?",opts:["Vai trò đặc biệt quan trọng","Vai trò nòng cốt","Vai trò chủ chốt","Vai trò trọng yếu"],ans:1},
+  {q:"Thế trận nào được nhấn mạnh trong xây dựng quốc phòng?",opts:["Thế trận phòng thủ","Thế trận quốc phòng công nghệ cao","Thế trận lòng dân","Thế trận tác chiến"],ans:2},
+  {q:"Lực lượng dân quân tự vệ được xây dựng theo phương châm nào?",opts:["Tinh, gọn, chuyên nghiệp","Vững mạnh, rộng khắp","Chuyên sâu, tinh nhuệ","Tập trung, cơ động"],ans:1},
+  {q:"Công tác giáo dục chính trị trong Quân đội nhằm mục tiêu gì?",opts:["Nâng cao trình độ văn hóa","Giữ vững trận địa tư tưởng của Đảng","Nâng cao trình độ nhận thức","Nâng cao lý luận chính trị"],ans:1},
+  {q:"Nghị quyết Đại hội Đảng bộ Quân đội lần thứ XII xác định công tác huấn luyện được xác định theo hướng nào?",opts:["Giảm lý thuyết, tăng thực hành","Sát thực tiễn, làm chủ vũ khí hiện đại","Tăng cường độ huấn luyện","Tập trung huấn luyện cơ bản"],ans:1},
+  {q:"Nghị quyết Đại hội Đảng bộ Quân đội lần thứ XII xác định công nghiệp quốc phòng được xây dựng theo hướng nào?",opts:["Tăng cường nhập khẩu vũ khí hiện đại","Tự chủ, tự lực, tự cường, lưỡng dụng","Làm chủ công nghệ lõi trong sản xuất vũ khí","Đi trước, đón đầu công nghệ"],ans:1},
+  {q:"Trong nhiệm kỳ 2020–2025, lực lượng dân quân tự vệ đạt tỷ lệ bao nhiêu so với dân số?",opts:["1,0%","1,41%","1,8%","2,0%"],ans:1},
+  {q:"Một trong những nhiệm vụ trọng tâm của nhiệm kỳ 2020–2025 là hoàn thành điều chỉnh tổ chức Quân đội theo hướng nào?",opts:["Tinh, gọn, mạnh","Hiện đại, tinh nhuệ","Quy mô lớn, đa dạng","Tập trung, thống nhất"],ans:0},
+  {q:"Trong 5 năm qua, số vụ việc vi phạm kỷ luật trong Quân đội đã giảm bao nhiêu phần trăm so với nhiệm kỳ trước?",opts:["Giảm 20%","Giảm 23,97%","Giảm 30,29%","Giảm 25,5%"],ans:1},
+  {q:"Trong nhiệm kỳ vừa qua, Quân đội đã tham gia bao nhiêu cuộc hội thao quân sự quốc tế và khu vực?",opts:["05 cuộc","08 cuộc","10 cuộc","12 cuộc"],ans:1},
+  {q:"Nghị quyết Đại hội Đảng bộ Quân đội lần thứ XII đã rút ra bao nhiêu bài học kinh nghiệm từ nhiệm kỳ 2020–2025?",opts:["3 bài học","4 bài học","5 bài học","6 bài học"],ans:2},
+  {q:"Một trong những bài học kinh nghiệm được Nghị quyết Đại hội Đảng bộ Quân đội lần thứ XII nêu ra là:",opts:["Tập trung phát triển kinh tế quốc phòng.","Giữ vững và tăng cường sự lãnh đạo tuyệt đối, trực tiếp về mọi mặt của Đảng.","Ưu tiên hiện đại hóa vũ khí, trang bị.","Mở rộng hợp tác quốc tế toàn diện."],ans:1},
+  {q:"Một trong những hạn chế, khuyết điểm được nêu ra trong Nghị quyết Đại hội Đảng bộ Quân đội lần thứ XII là:",opts:["Chất lượng huấn luyện có thời điểm chưa đạt yêu cầu.","Công tác thanh tra, kiểm tra, giám sát có nội dung còn hạn chế, có vụ việc phát hiện chậm.","Hợp tác quốc tế chưa thật sự sâu rộng.","Công tác tuyển quân một số địa phương chưa đạt chỉ tiêu."],ans:1},
+  {q:"Trong nhiệm kỳ 2020–2025, Quân đội đã vận động được bao nhiêu hộ gia đình không di cư tự do?",opts:["5.000 hộ","11.445 hộ","15.200 hộ","20.000 hộ"],ans:1},
+  {q:"Tỷ lệ sản phẩm vũ khí, trang bị kỹ thuật do công nghiệp quốc phòng trong nước sản xuất và trang bị cho Quân đội là bao nhiêu?",opts:["Trên 60%","Trên 70%","Trên 80%","Trên 90%"],ans:2},
+  {q:"Nghị quyết Đại hội Đảng bộ Quân đội lần thứ XII xác định công tác gì được đặc biệt chú trọng và đạt nhiều kết quả tích cực trong xây dựng Đảng bộ?",opts:["Công tác tài chính","Công tác cán bộ","Công tác hậu cần","Công tác văn hóa"],ans:1},
+  {q:"Mục tiêu tổng quát của Đại hội XII đề ra là xây dựng Quân đội như thế nào?",opts:["Quân đội nhân dân, cách mạng, chính quy, tinh nhuệ, từng bước hiện đại.","Quân đội cách mạng, chính quy, tinh nhuệ, hiện đại.","Quân đội hùng mạnh, hiện đại hàng đầu khu vực.","Quân đội chính quy, hiện đại, đa nhiệm vụ."],ans:1},
+  {q:"Trong nhiệm kỳ vừa qua Quân đội đã tham gia thi đấu bao nhiêu giải thể thao trong nước và quốc tế, giành được bao nhiêu huy chương?",opts:["673 giải thể thao trong nước và quốc tế dành 9.394 huy chương","675 giải thể thao trong nước và quốc tế dành 9.402 huy chương","678 giải thể thao trong nước và quốc tế dành 9.396 huy chương","682 giải thể thao trong nước và quốc tế dành 9.404 huy chương"],ans:0},
+  {q:"Tuyên truyền miệng là gì?",opts:["Là hình thức tuyên truyền thông qua phương tiện truyền thông","Là hình thức tuyên truyền thông qua giao tiếp trực tiếp bằng lời nói giữa người nói và người nghe","Là hình thức truyền đạt thông tin gián tiếp","Là hình thức tuyên truyền qua văn bản"],ans:1},
+  {q:"Vai trò của tuyên truyền miệng là gì?",opts:["Là hình thức phụ của công tác tư tưởng","Là công cụ thứ yếu trong tuyên truyền","Là vũ khí sắc bén, công cụ hàng đầu trong tuyên truyền của Đảng","Là hoạt động mang tính hình thức"],ans:2},
+  {q:"Nguyên tắc tiến hành công tác tuyên truyền miệng gồm?",opts:["Tính Đảng, khoa học, chân thực","Tính Đảng, khoa học, quần chúng, chân thực","Tính Đảng, chiến đấu, khoa học, quần chúng, chân thực","Tính Đảng, chiến đấu, khoa học, quần chúng, chân thực, gương mẫu"],ans:2},
+  {q:"Tính chiến đấu trong tuyên truyền miệng thể hiện ở đâu?",opts:["Trình độ chuyên môn","Khả năng giao tiếp","Bản lĩnh chính trị, đấu tranh với quan điểm sai trái","Khả năng diễn đạt"],ans:2},
+  {q:"Phương châm công tác tuyên truyền miệng là gì?",opts:["Chủ động, tích cực, nhạy bén, kịp thời","Chủ động, kịp thời, hiệu quả","Chủ động, tích cực, nhạy bén, kịp thời, cụ thể, thiết thực, thường xuyên","Chủ động, tích cực, kịp thời"],ans:2},
+  {q:"Phương pháp tiến hành tuyên truyền miệng gồm?",opts:["Trực tiếp, gián tiếp","Trực tiếp, trực tuyến","Trực tiếp, trực tuyến, kết hợp","Tất cả các hình thức trên"],ans:2},
+  {q:"Hình thức tuyên truyền miệng gồm?",opts:["Hội nghị, sinh hoạt chính trị","Diễn đàn, giao lưu","Văn hóa, văn nghệ","Tất cả các hình thức trên"],ans:3},
+  {q:"Các giai đoạn của một buổi tuyên truyền miệng gồm?",opts:["Trước – trong – sau","Trước – bắt đầu – trong – kết thúc","Trước – bắt đầu – trong – kết thúc – định hướng","Trước – trong"],ans:2},
+  {q:"Báo cáo viên Quân đội có mấy nhiệm vụ?",opts:["4","5","6","7"],ans:2},
+  {q:"Một nhiệm vụ của báo cáo viên là gì?",opts:["Tổ chức huấn luyện","Biên soạn tài liệu tuyên truyền","Chỉ huy chiến đấu","Quản lý hành chính"],ans:1},
+  {q:"Nhiệm vụ quan trọng của tuyên truyền miệng là gì?",opts:["Giải trí","Nắm và định hướng dư luận","Tổ chức sinh hoạt","Quản lý tài chính"],ans:1},
+  {q:"Quyền lợi của báo cáo viên gồm?",opts:["Được cung cấp tài liệu, phương tiện","Được tập huấn, bồi dưỡng","Được hỗ trợ phục vụ công tác","Tất cả các ý trên"],ans:3},
+  {q:"Hệ thống báo cáo viên trong toàn quân gồm?",opts:["Chuyên trách","Chuyên trách, bán chuyên trách","Chuyên trách, bán chuyên trách, kiêm nhiệm","Chỉ chuyên trách"],ans:2},
+  {q:"Trước khi tuyên truyền cần chuẩn bị gì?",opts:["Nội dung","Phương tiện","Thời gian, địa điểm","Tất cả các nội dung trên"],ans:3},
+  {q:"Yêu cầu của chủ đề tuyên truyền là gì?",opts:["Đúng, trúng, mới","Cấp thiết, định hướng tư tưởng","Phù hợp người nghe","Tất cả các ý trên"],ans:3},
+  {q:"Đặc điểm đối tượng tuyên truyền là gì?",opts:["Đa dạng","Có nhu cầu thông tin","Bị tác động bởi tư tưởng","Tất cả các ý trên"],ans:3},
+  {q:"Ưu thế của tuyên truyền miệng là gì?",opts:["Giao tiếp trực tiếp","Linh hoạt","Truyền tải thông tin nội bộ","Tất cả các ý trên"],ans:3},
+  {q:"Giao tiếp trực tiếp giúp gì?",opts:["Định hướng dư luận tốt hơn","Tăng tính hấp dẫn","Giữ bí mật thông tin","Tất cả các ý trên"],ans:3},
+  {q:"Tuyên truyền là gì?",opts:["Truyền đạt thông tin","Tác động nhận thức, niềm tin","Thúc đẩy hành động","Tất cả các ý trên"],ans:3},
+  {q:"Vai trò của tuyên truyền trong công tác tư tưởng là gì?",opts:["Quan trọng","Chủ yếu","Một trong những hình thái chủ yếu","Phụ trợ"],ans:2},
+  {q:"Đại hội đại biểu Đảng bộ Quân khu IV lần thứ XII, nhiệm kỳ 2025–2030 diễn ra trong thời gian nào?",opts:["Từ ngày 20/8/2025 đến ngày 22/8/2025","Từ ngày 21/8/2025 đến ngày 23/8/2025","Từ ngày 20/8/2025 đến ngày 21/8/2025","Từ ngày 19/8/2025 đến ngày 22/8/2025"],ans:0},
+  {q:"Chủ đề của Đại hội đại biểu Đảng bộ Quân khu IV lần thứ XII, nhiệm kỳ 2025–2030 là gì?",opts:["Phát huy truyền thống Quân khu 4 anh hùng, xây dựng Đảng bộ trong sạch, vững mạnh, LLVT Quân khu tinh, gọn, mạnh; phòng thủ Quân khu vững chắc, quốc phòng toàn dân vững mạnh, góp phần thực hiện thắng lợi nhiệm vụ xây dựng và bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa","Phát huy truyền thống Quân khu 4 anh hùng, xây dựng Đảng bộ vững mạnh toàn diện, LLVT Quân khu chính quy, hiện đại; khu vực phòng thủ vững chắc, quốc phòng toàn dân phát triển, góp phần bảo vệ vững chắc Tổ quốc Việt Nam xã hội chủ nghĩa","Phát huy truyền thống Quân khu 4 anh hùng, xây dựng Đảng bộ trong sạch, vững mạnh, LLVT Quân khu tinh, gọn, mạnh; phòng thủ Quân khu vững chắc, quốc phòng toàn dân vững mạnh, góp phần thực hiện thắng lợi nhiệm vụ xây dựng và bảo vệ vững chắc Tổ quốc Việt Nam xã hội chủ nghĩa","Phát huy truyền thống Quân khu 4 anh hùng, xây dựng Đảng bộ trong sạch, vững mạnh, LLVT Quân khu tinh nhuệ, hiện đại; phòng thủ khu vực vững chắc, nền quốc phòng toàn dân vững mạnh, góp phần bảo vệ Tổ quốc trong tình hình mới"],ans:2},
+  {q:"Phương châm của Đại hội đại biểu Đảng bộ Quân khu IV lần thứ XII, nhiệm kỳ 2025–2030 là gì?",opts:["Đoàn kết – Kỷ cương – Dân chủ – Đổi mới – Phát triển","Đoàn kết – Dân chủ – Kỷ luật – Đổi mới – Phát triển","Đoàn kết – Dân chủ – Kỷ cương – Sáng tạo – Phát triển","Đoàn kết – Dân chủ – Kỷ cương – Đổi mới – Phát triển"],ans:3},
+  {q:"Chỉ tiêu của công tác huấn luyện được xác định trong Nghị quyết Đại hội Đại biểu Đảng bộ Quân khu IV lần thứ XII, nhiệm kỳ 2025–2030 như thế nào?",opts:["Phấn đấu 75% trở lên đơn vị đạt tiêu chuẩn huấn luyện giỏi; xây dựng nhà trường thông minh, hiện đại. 100% cán bộ được huấn luyện theo phân cấp, trong đó 80% cán bộ tiểu đoàn và tương đương, 75% cán bộ đại đội, trung đội đạt khá, giỏi (35% đạt giỏi); kết quả huấn luyện 100% đạt yêu cầu, có 80% trở lên khá, giỏi.","Phấn đấu 70% trở lên đơn vị đạt tiêu chuẩn huấn luyện giỏi; xây dựng nhà trường hiện đại theo tiêu chí Quân đội tinh, gọn, mạnh. 100% cán bộ được huấn luyện theo phân cấp, trong đó 85% cán bộ tiểu đoàn, 80% cán bộ đại đội đạt khá, giỏi (40% đạt giỏi); kết quả huấn luyện 100% đạt yêu cầu, có 85% khá, giỏi.","Phấn đấu 70% trở lên đơn vị đạt tiêu chuẩn huấn luyện giỏi; xây dựng nhà trường thông minh, hiện đại theo tiêu chí xây dựng Quân đội hiện đại. 100% cán bộ huấn luyện được theo phân cấp, trong đó có 85% cán bộ tiểu đoàn và tương đương, 80% cán bộ đại đội, trung đội và tương đương đạt khá, giỏi (40% trở lên đạt giỏi); kết quả huấn luyện 100% đạt yêu cầu, có 85% trở lên khá, giỏi.","Phấn đấu 70% trở lên đơn vị đạt tiêu chuẩn huấn luyện giỏi; xây dựng nhà trường thông minh, hiện đại theo tiêu chí xây dựng Quân đội hiện đại. 100% cán bộ huấn luyện theo phân cấp, trong đó 85% cán bộ tiểu đoàn và tương đương, 80% cán bộ đại đội, trung đội và tương đương đạt khá, giỏi (40% trở lên đạt giỏi); kết quả huấn luyện 100% đạt yêu cầu, có 85% trở lên khá, giỏi."],ans:3},
+  {q:"Chỉ tiêu về tỷ lệ trang bị xe tăng, xe thiết giáp thế hệ mới được xác định trong Nghị quyết Đại hội đại biểu Đảng bộ Quân khu IV lần thứ XII, nhiệm kỳ 2025–2030 đạt từ bao nhiêu phần trăm trở lên?",opts:["35%","40%","45%","50%"],ans:1},
+  {q:"Chỉ tiêu về tỷ lệ trang bị vũ khí phòng không lục quân thế hệ mới được xác định trong Nghị quyết Đại hội đại biểu Đảng bộ Quân khu IV lần thứ XII, nhiệm kỳ 2025–2030 đạt từ bao nhiêu phần trăm trở lên?",opts:["45%","55%","60%","50%"],ans:3},
+  {q:"Đột phá thứ nhất được xác định trong Nghị quyết Đại hội Đại biểu Đảng bộ Quân khu IV lần thứ XII, nhiệm kỳ 2025–2030 là gì?",opts:["Xây dựng LLVT Quân khu chính quy, hiện đại; xây dựng cơ quan quân sự địa phương các cấp vững mạnh, đáp ứng yêu cầu, nhiệm vụ tình hình mới.","Xây dựng LLVT Quân khu tinh, gọn, mạnh; xây dựng cơ quan quân sự địa phương các cấp vững mạnh, đáp ứng yêu cầu, nhiệm vụ tình hình mới.","Xây dựng LLVT Quân khu tinh nhuệ, hiện đại; xây dựng cơ quan quân sự địa phương các cấp vững mạnh, đáp ứng yêu cầu, nhiệm vụ tình hình mới.","Xây dựng LLVT Quân khu vững mạnh toàn diện; xây dựng cơ quan quân sự địa phương các cấp vững mạnh, đáp ứng yêu cầu, nhiệm vụ tình hình mới."],ans:1},
+  {q:"Đột phá thứ hai trong Nghị quyết Đại hội đại biểu Đảng bộ Quân khu IV lần thứ XII, nhiệm kỳ 2025–2030 là gì?",opts:["Nâng cao chất lượng huấn luyện, giáo dục và đào tạo; xây dựng chính quy, quản lý kỷ luật; phát huy giá trị văn hóa \"Bộ đội Cụ Hồ\" trên quê hương Bác.","Chất lượng huấn luyện, giáo dục và đào tạo; xây dựng chính quy, quản lý kỷ luật; phát huy phẩm chất \"Bộ đội Cụ Hồ\" trên quê hương Bác.","Chất lượng huấn luyện, giáo dục và đào tạo; xây dựng chính quy, quản lý kỷ luật; phát huy giá trị văn hóa \"Bộ đội Cụ Hồ\" trong thời kỳ mới.","Chất lượng huấn luyện, giáo dục và đào tạo; xây dựng chính quy, quản lý kỷ luật; phát huy giá trị văn hóa \"Bộ đội Cụ Hồ\" trên quê hương Bác."],ans:3},
+  {q:"Đột phá thứ ba trong Nghị quyết Đại hội đại biểu Đảng bộ Quân khu IV lần thứ XII, nhiệm kỳ 2025–2030 là gì?",opts:["Đẩy mạnh chuyển đổi số và ứng dụng công nghệ thông tin.","Đẩy mạnh chuyển đổi số và ứng dụng khoa học kỹ thuật.","Đẩy mạnh chuyển đổi số và ứng dụng khoa học công nghệ.","Đẩy mạnh hiện đại hóa và ứng dụng khoa học công nghệ."],ans:2},
+  {q:"Kết quả bầu Ban Chấp hành Đảng bộ nhiệm kỳ 2025–2030 và Đoàn đại biểu của Đảng bộ đi dự Đại hội Đại biểu Đảng bộ Quân đội lần thứ XII cụ thể như thế nào?",opts:["Ban Chấp hành Đảng bộ nhiệm kỳ 2025–2030 gồm 19 đồng chí; Đoàn đại biểu của Đảng bộ đi dự Đại hội đại biểu Đảng bộ Quân đội lần thứ XII gồm 13 đại biểu chính thức và 01 đại biểu dự khuyết.","Ban Chấp hành Đảng bộ nhiệm kỳ 2025–2030 gồm 17 đồng chí; Đoàn đại biểu gồm 13 đại biểu chính thức và 01 đại biểu dự khuyết.","Ban Chấp hành Đảng bộ nhiệm kỳ 2025–2030 gồm 19 đồng chí; Đoàn đại biểu gồm 12 đại biểu chính thức và 01 đại biểu dự khuyết.","Ban Chấp hành Đảng bộ nhiệm kỳ 2025–2030 gồm 19 đồng chí; Đoàn đại biểu gồm 13 đại biểu chính thức và 02 đại biểu dự khuyết."],ans:0}
+];
+
+/* ═══════════ SHUFFLE HELPERS ═══════════ */
+const ALL_PHRASES = ["Tất cả các ý trên","Tất cả các nội dung trên","Tất cả các hình thức trên"];
+
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function shuffleQuestion(q){
+  // Find if any option should stay at D (index 3)
+  let fixedIdx=-1;
+  q.opts.forEach((o,i)=>{
+    if(ALL_PHRASES.some(p=>o.includes(p))) fixedIdx=i;
+  });
+
+  let newOpts, newAns;
+  if(fixedIdx!==-1){
+    const fixedText=q.opts[fixedIdx];
+    let others=q.opts.map((t,i)=>({t,i})).filter((_,i)=>i!==fixedIdx);
+    others=shuffle(others);
+    newOpts=[...others.map(o=>o.t),fixedText];
+    if(q.ans===fixedIdx){
+      newAns=3;
+    } else {
+      newAns=others.findIndex(o=>o.i===q.ans);
+    }
+  } else {
+    let paired=q.opts.map((t,i)=>({t,i}));
+    paired=shuffle(paired);
+    newOpts=paired.map(o=>o.t);
+    newAns=paired.findIndex(o=>o.i===q.ans);
+  }
+  return {...q, opts:newOpts, ans:newAns};
+}
+
+/* ═══════════ STATE ═══════════ */
+let practiceData=[];
+let examData=[];
+let examAnswers={};   // qIdx -> chosen optIdx
+let examCurrentIdx=0;
+let examTimer=null;
+let examSecondsLeft=45*60;
+let examSubmitted=false;
+let showingReview=false;
+
+const LABELS=['A','B','C','D'];
+
+/* ═══════════ TABS ═══════════ */
+function switchTab(tab){
+  document.querySelectorAll('.nav-tab').forEach((el,i)=>{
+    el.classList.toggle('active',
+      (tab==='practice'&&i===0)||(tab==='exam'&&i===1));
+  });
+  document.getElementById('practiceSection').classList.toggle('active',tab==='practice');
+  document.getElementById('examSection').classList.toggle('active',tab==='exam');
+}
+
+/* ═══════════ PRACTICE MODE ═══════════ */
+function buildPractice(){
+  practiceData=shuffle(BANK).map(shuffleQuestion);
+  const container=document.getElementById('practiceList');
+  container.innerHTML='';
+  practiceData.forEach((q,qi)=>{
+    const card=document.createElement('div');
+    card.className='q-card';
+    card.id='pq-'+qi;
+    card.innerHTML=`
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;">
+        <div class="q-number">${qi+1}</div>
+        <div class="q-text">${q.q}</div>
+      </div>
+      <div class="opts-grid" id="popts-${qi}">
+        ${q.opts.map((o,oi)=>`
+          <button class="opt-btn" id="popt-${qi}-${oi}" onclick="selectPracticeOpt(${qi},${oi})">
+            <div class="opt-label">${LABELS[oi]}</div>
+            <div class="opt-text">${o}</div>
+          </button>
+        `).join('')}
+      </div>
+      <div class="answer-note" id="pnote-${qi}"></div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function selectPracticeOpt(qi,oi){
+  const q=practiceData[qi];
+  // Disable all buttons
+  for(let i=0;i<4;i++){
+    const btn=document.getElementById(`popt-${qi}-${i}`);
+    btn.disabled=true;
+  }
+  const card=document.getElementById('pq-'+qi);
+  card.classList.add('answered');
+
+  const chosenBtn=document.getElementById(`popt-${qi}-${oi}`);
+  const correctBtn=document.getElementById(`popt-${qi}-${q.ans}`);
+  const note=document.getElementById(`pnote-${qi}`);
+
+  if(oi===q.ans){
+    chosenBtn.classList.add('correct');
+    note.className='answer-note show';
+    note.innerHTML='✅ Chính xác! Đáp án đúng là <b>'+LABELS[q.ans]+'</b>.';
+  } else {
+    chosenBtn.classList.add('wrong');
+    correctBtn.classList.add('show-correct');
+    note.className='answer-note wrong-note show';
+    note.innerHTML='❌ Chưa đúng. Đáp án đúng là <b>'+LABELS[q.ans]+'</b>.';
+  }
+}
+
+/* ═══════════ EXAM MODE ═══════════ */
+function startExam(){
+  examData=shuffle(BANK).slice(0,50).map(shuffleQuestion);
+  examAnswers={};
+  examCurrentIdx=0;
+  examSecondsLeft=45*60;
+  examSubmitted=false;
+
+  document.getElementById('examStart').style.display='none';
+  document.getElementById('examDoing').style.display='block';
+  document.getElementById('examResult').style.display='none';
+  document.getElementById('examReview').style.display='none';
+
+  buildDots();
+  renderExamQ();
+  startTimer();
+}
+
+function buildDots(){
+  const wrap=document.getElementById('examDots');
+  wrap.innerHTML='';
+  for(let i=0;i<50;i++){
+    const d=document.createElement('div');
+    d.className='q-dot'+(i===0?' current':'');
+    d.id='edot-'+i;
+    d.textContent=i+1;
+    d.onclick=(()=>{const idx=i;return()=>goToExamQ(idx);})();
+    wrap.appendChild(d);
+  }
+}
+
+function updateDots(){
+  for(let i=0;i<50;i++){
+    const d=document.getElementById('edot-'+i);
+    if(!d) continue;
+    d.className='q-dot';
+    if(i===examCurrentIdx) d.classList.add('current');
+    if(examAnswers[i]!==undefined) d.classList.add('answered');
+  }
+}
+
+function renderExamQ(){
+  const q=examData[examCurrentIdx];
+  const chosen=examAnswers[examCurrentIdx];
+  const total=50;
+
+  document.getElementById('examCurrentQ').textContent=(examCurrentIdx+1)+'/'+total;
+  document.getElementById('examAnswered').textContent=Object.keys(examAnswers).length;
+  document.getElementById('examProgress').style.width=((examCurrentIdx+1)/total*100)+'%';
+
+  document.getElementById('btnPrev').disabled=(examCurrentIdx===0);
+  document.getElementById('btnNext').disabled=(examCurrentIdx===49);
+
+  const card=document.getElementById('examQCard');
+  card.innerHTML=`
+    <div class="q-card" style="animation:fadeSlideIn .3s ease both;">
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;">
+        <div class="q-number">${examCurrentIdx+1}</div>
+        <div class="q-text">${q.q}</div>
+      </div>
+      <div class="opts-grid">
+        ${q.opts.map((o,oi)=>`
+          <button class="opt-btn ${chosen===oi?'correct':''}" id="eopt-${oi}"
+            onclick="selectExamOpt(${oi})" ${examSubmitted?'disabled':''}>
+            <div class="opt-label">${LABELS[oi]}</div>
+            <div class="opt-text">${o}</div>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  // Restyle if already chosen (exam mode shows selected gold, not green yet)
+  if(chosen!==undefined){
+    const btn=document.getElementById('eopt-'+chosen);
+    if(btn){
+      btn.style.borderColor='rgba(245,197,24,.7)';
+      btn.style.background='rgba(245,197,24,.12)';
+    }
+  }
+  updateDots();
+}
+
+function selectExamOpt(oi){
+  if(examSubmitted) return;
+  examAnswers[examCurrentIdx]=oi;
+  renderExamQ();
+}
+
+function goToExamQ(idx){
+  examCurrentIdx=idx;
+  renderExamQ();
+}
+function examNav(dir){
+  const next=examCurrentIdx+dir;
+  if(next<0||next>49) return;
+  examCurrentIdx=next;
+  renderExamQ();
+}
+
+function startTimer(){
+  clearInterval(examTimer);
+  examTimer=setInterval(()=>{
+    examSecondsLeft--;
+    if(examSecondsLeft<=0){
+      clearInterval(examTimer);
+      submitExam();
+      return;
+    }
+    const m=Math.floor(examSecondsLeft/60);
+    const s=examSecondsLeft%60;
+    const el=document.getElementById('examTimer');
+    if(el){
+      el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+      el.className='value'+(examSecondsLeft<=300?' danger':'');
+    }
+  },1000);
+}
+
+function confirmSubmit(){
+  const answered=Object.keys(examAnswers).length;
+  const unanswered=50-answered;
+  let msg=`Bạn đã trả lời ${answered}/50 câu.`;
+  if(unanswered>0) msg+=`\nCòn ${unanswered} câu chưa trả lời.`;
+  msg+='\n\nBạn có chắc muốn nộp bài?';
+  if(confirm(msg)) submitExam();
+}
+
+function submitExam(){
+  clearInterval(examTimer);
+  examSubmitted=true;
+
+  let correct=0, wrong=0, skip=0;
+  for(let i=0;i<50;i++){
+    const chosen=examAnswers[i];
+    if(chosen===undefined){ skip++; }
+    else if(chosen===examData[i].ans){ correct++; }
+    else{ wrong++; }
+  }
+
+  const pct=correct/50;
+  const deg=Math.round(pct*360);
+
+  let emoji, title, msg;
+  if(correct>=45){
+    emoji='🏆';title='XUẤT SẮC!';
+    msg='Chúc mừng đồng chí! Kết quả xuất sắc, xứng danh Báo cáo viên Giỏi cấp Quân khu!';
+  } else if(correct>=40){
+    emoji='🎖️';title='GIỎI!';
+    msg='Đồng chí đạt kết quả tốt. Hãy tiếp tục ôn luyện để đạt thành tích cao hơn!';
+  } else if(correct>=35){
+    emoji='✅';title='KHÁ!';
+    msg='Kết quả khá tốt. Cần ôn luyện thêm một số phần để vững vàng hơn!';
+  } else if(correct>=25){
+    emoji='📚';title='TRUNG BÌNH';
+    msg='Đồng chí cần tập trung ôn luyện thêm. Hãy xem lại phần ôn luyện và làm bài thêm nhiều lần!';
+  } else {
+    emoji='💪';title='CẦN CỐ GẮNG THÊM';
+    msg='Hãy tiếp tục học tập và rèn luyện. Sử dụng mục Ôn Luyện để nắm vững kiến thức!';
+  }
+
+  document.getElementById('examDoing').style.display='none';
+  const resultDiv=document.getElementById('examResult');
+  resultDiv.style.display='block';
+  resultDiv.innerHTML=`
+    <div class="result-screen">
+      <div style="font-size:16px;color:var(--gray);margin-bottom:16px;letter-spacing:1px;">
+        CẢM ƠN BẠN ĐÃ HOÀN THÀNH BÀI THI CỦA MÌNH
+      </div>
+      <div class="result-score-ring" style="--pct:${deg}deg;">
+        <div class="result-score-inner">
+          <div class="result-score-num">${correct}</div>
+          <div class="result-score-denom">/ 50</div>
+        </div>
+      </div>
+      <div style="font-size:48px;margin-bottom:12px;">${emoji}</div>
+      <div class="result-title">${title}</div>
+      <div class="result-msg">${msg}</div>
+      <div class="result-badges">
+        <div class="result-badge badge-correct">✅ Đúng: ${correct}</div>
+        <div class="result-badge badge-wrong">❌ Sai: ${wrong}</div>
+        <div class="result-badge badge-skip">⬜ Bỏ qua: ${skip}</div>
+      </div>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;">
+        <button class="btn-review" onclick="showReview()">🔍 Xem Bài Làm</button>
+        <button class="btn-retry" onclick="retryExam()">🔁 Thi Lại</button>
+      </div>
+    </div>
+  `;
+}
+
+function showReview(){
+  document.getElementById('examResult').style.display='none';
+  const rv=document.getElementById('examReview');
+  rv.style.display='block';
+
+  let html=`
+    <div class="review-header">
+      <div class="review-title">📋 XEM LẠI BÀI THI</div>
+      <button class="btn-back-result" onclick="backToResult()">← Về Kết Quả</button>
+    </div>
+  `;
+
+  for(let i=0;i<50;i++){
+    const q=examData[i];
+    const chosen=examAnswers[i];
+    let status, tagClass, tagText;
+    if(chosen===undefined){
+      status='is-skip'; tagClass='tag-skip'; tagText='⬜ BỎ QUA';
+    } else if(chosen===q.ans){
+      status='is-correct'; tagClass='tag-correct'; tagText='✅ ĐÚNG';
+    } else {
+      status='is-wrong'; tagClass='tag-wrong'; tagText='❌ SAI';
+    }
+
+    html+=`
+      <div class="review-q-card ${status}">
+        <span class="review-result-tag ${tagClass}">${tagText}</span>
+        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;">
+          <div class="q-number" style="flex-shrink:0;">${i+1}</div>
+          <div class="q-text" style="margin-bottom:0;">${q.q}</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          ${q.opts.map((o,oi)=>{
+            let style='';
+            if(oi===q.ans) style='border-color:#22c55e;background:rgba(34,197,94,.1);color:#86efac;';
+            else if(oi===chosen&&chosen!==q.ans) style='border-color:#ef4444;background:rgba(239,68,68,.1);color:#fca5a5;';
+            else style='opacity:.55;';
+            return `<div style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.1);${style}font-size:14px;">
+              <span style="flex-shrink:0;font-weight:700;width:20px;">${LABELS[oi]}.</span>
+              <span>${o}</span>
+            </div>`;
+          }).join('')}
+        </div>
+        ${chosen!==undefined&&chosen!==q.ans?`<div style="margin-top:10px;font-size:13px;color:#86efac;">→ Đáp án đúng: <b>${LABELS[q.ans]}</b></div>`:''}
+      </div>
+    `;
+  }
+  rv.innerHTML=html;
+  rv.scrollIntoView({behavior:'smooth'});
+}
+
+function backToResult(){
+  document.getElementById('examReview').style.display='none';
+  document.getElementById('examResult').style.display='block';
+  document.getElementById('examResult').scrollIntoView({behavior:'smooth'});
+}
+
+function retryExam(){
+  document.getElementById('examResult').style.display='none';
+  document.getElementById('examReview').style.display='none';
+  document.getElementById('examStart').style.display='block';
+}
+
+/* ═══════════ BACK TO TOP ═══════════ */
+window.addEventListener('scroll',()=>{
+  document.getElementById('backTop').classList.toggle('show',window.scrollY>300);
+});
+
+/* ═══════════ INIT ═══════════ */
+buildPractice();
+</script>
+</body>
+</html>
